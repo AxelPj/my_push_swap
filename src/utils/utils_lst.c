@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils_lst.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 14:41:59 by axel              #+#    #+#             */
-/*   Updated: 2025/04/26 20:49:28 by axelpeti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../include/header/pushswap.h"
 
 t_data	*init(char **tab_arg, t_data *data_lst)
@@ -22,7 +10,7 @@ t_data	*init(char **tab_arg, t_data *data_lst)
 	if (data_lst->a)
 	data_lst->size_a = 0;
 	data_lst->a = init_lst(tab_arg, data_lst);
-	data_lst->size_a = ft_lstsize(data_lst->a);
+	data_lst->size_a = my_lstsize(data_lst->a);
 	data_lst->cost_a = 0;
 	data_lst->cost_b = 0;
 	data_lst->temp_cost_a = 0;
@@ -43,19 +31,19 @@ t_list	*init_lst(char **tab_arg, t_data *data_lst)
 	i = 0;
 	while (tab_arg[i])
 	{
-		new_node = ft_lstnw(atoi(tab_arg[i]));
+		new_node = my_lstnw(atoi(tab_arg[i]));
 		if (!new_node)
 		{
 			printf("Error\n");
 			return (NULL);
 		}
-		ft_lstadd_bck(&data_lst->a, new_node);
+		my_lstadd_bck(&data_lst->a, new_node);
 		i++;
 	}
 	return (data_lst->a);
 }
 
-void	ft_lstadd_bck(t_list **lst, t_list *new)
+void	my_lstadd_bck(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
@@ -80,7 +68,7 @@ t_list	*lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_lstnw(int content)
+t_list	*my_lstnw(int content)
 {
 	t_list	*newelem;
 
@@ -92,7 +80,7 @@ t_list	*ft_lstnw(int content)
 	return (newelem);
 }
 
-int	ft_lstsize(t_list *lst)
+int	my_lstsize(t_list *lst)
 {
 	int	size;
 	t_list *current;

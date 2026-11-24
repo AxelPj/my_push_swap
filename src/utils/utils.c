@@ -1,23 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 15:29:46 by axelpeti          #+#    #+#             */
-/*   Updated: 2025/04/26 21:05:09 by axelpeti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../include/header/pushswap.h"
 
 int	check_sort_lst(t_list **stack_a)
 {
 	t_list	*current;
-	int		temp;
 
-	temp = 0;
 	current = *stack_a;
 	while (current->next)
 	{
@@ -55,8 +41,8 @@ void	update_indexes(t_list *stack_push, t_list *stack_receive)
 void	reinit_data(t_data *data_lst, t_list *stack_receive)
 {
 	(void) stack_receive;
-	data_lst->size_a = ft_lstsize(data_lst->a);
-	data_lst->size_b = ft_lstsize(data_lst->b);
+	data_lst->size_a = my_lstsize(data_lst->a);
+	data_lst->size_b = my_lstsize(data_lst->b);
 	data_lst->total_cost = 1000;
 }
 
@@ -68,7 +54,7 @@ void	print_lst(t_data *data_lst)
 	current_a = data_lst->a;
 	current_b = data_lst->b;
 	printf("\n");
-	if (ft_lstsize(data_lst->a) >= ft_lstsize(data_lst->b))
+	if (my_lstsize(data_lst->a) >= my_lstsize(data_lst->b))
 	{
 		while (current_a)
 		{
@@ -83,7 +69,7 @@ void	print_lst(t_data *data_lst)
 			current_a = current_a->next;
 		}
 	}
-	else if (ft_lstsize(data_lst->a) < ft_lstsize(data_lst->b))
+	else if (my_lstsize(data_lst->a) < my_lstsize(data_lst->b))
 	{
 		while (current_b)
 		{

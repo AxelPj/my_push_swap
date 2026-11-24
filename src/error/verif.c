@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   verif.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 14:51:57 by axel              #+#    #+#             */
-/*   Updated: 2025/04/26 17:20:03 by axelpeti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../include/header/pushswap.h"
 
 char	**arg_to_tab(char **av, int ac)
@@ -20,19 +8,19 @@ char	**arg_to_tab(char **av, int ac)
 
 	i = 1;
 	tab_arg = NULL;
-	str = ft_strdup(" ");
+	str = my_strdup(" ");
 	if (ac == 2)
-		str = ft_strjoin(str, av[1]);
+		str = my_strjoin(str, av[1]);
 	else
 	{
 		while (i < ac)
 		{
-			str = ft_strjoin(str, " ");
-			str = ft_strjoin(str, av[i]);
+			str = my_strjoin(str, " ");
+			str = my_strjoin(str, av[i]);
 			i++;
 		}
 	}
-	tab_arg = ft_split(str, ' ');
+	tab_arg = my_split(str, ' ');
 	return (tab_arg);
 }
 
@@ -77,7 +65,7 @@ int	verif_limit(char **tab)
 	j = 1;
 	while (tab[j])
 	{
-		nb = ft_atol(tab[j]);
+		nb = my_atol(tab[j]);
 		if (nb > 2147483647 || nb < -2147483648)
 			return (1);
 		j++;
@@ -94,7 +82,7 @@ int	verif_duplicate(char **tab_arg, int i, int j)
 	tab_nb = malloc(max * sizeof(int));
 	while (tab_arg[i] != NULL)
 	{
-		tab_nb[i] = ft_atol(tab_arg[i]);
+		tab_nb[i] = my_atol(tab_arg[i]);
 		i++;
 	}
 	while (j < max)

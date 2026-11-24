@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 18:34:34 by axelpeti          #+#    #+#             */
-/*   Updated: 2025/04/26 21:30:26 by axelpeti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../include/header/pushswap.h"
 
 void	cost_mouv_stack(t_data *data_lst, int index_a, int index_b)
@@ -81,7 +69,7 @@ void	find_small_and_big_nb(t_data *data_lst, t_list *stack)
 	t_list	*current;
 	int		size;
 
-	size = ft_lstsize (stack);
+	size = my_lstsize (stack);
 	current = stack;
 	data_lst->small_nb = current->content;
 	data_lst->index_small_nb = current->index;

@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 14:25:13 by axel              #+#    #+#             */
-/*   Updated: 2025/04/26 19:36:24 by axelpeti         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include "../libft/libft.h"
+# include "../libmy/libmy.h"
 # include <unistd.h>
 # include <stdio.h>
 
@@ -54,13 +42,13 @@ int		verif_duplicate(char **tab_arg, int i, int j);
 //-----------lst-----------//
 t_data	*init(char **tab_arg, t_data *data_lst);
 t_list	*init_lst(char **tab_arg, t_data *data_lst);
-t_list	*ft_lstnw(int content);
-int		ft_lstsize(t_list *lst);
+t_list	*my_lstnw(int content);
+int		my_lstsize(t_list *lst);
 void	mouv_a_to_b(t_data *data_lst);
 void	mouv_a(t_data *data_lst);
 void	mouv_b(t_data *data_lst);
 t_list	*lstlast(t_list *lst);
-void	ft_lstadd_bck(t_list **lst, t_list *new);
+void	my_lstadd_bck(t_list **lst, t_list *new);
 
 //-----------a_to_b------------//
 void	check_place_a_to_b(t_data *data_lst);

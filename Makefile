@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: axelpeti <axelpeti@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/25 14:45:18 by axelpeti          #+#    #+#              #
-#    Updated: 2025/04/22 18:31:06 by axelpeti         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Nom de l'exécutable
 NAME = push_swap
 
@@ -19,9 +7,9 @@ SRCS =  ./src/error/verif.c \
 		./src/main/pushswap.c \
 		./src/mouv/push.c ./src/mouv/rotate.c ./src/mouv/swap.c ./src/mouv/reverse_rotate.c \
 		
-# Répertoire et archive de la libft
-LIBFT_DIR = ./include/libft
-LIBFT = $(LIBFT_DIR)/libft.a
+# Répertoire et archive de la libmy
+LIBMY_DIR = ./include/libmy
+LIBMY = $(LIBMY_DIR)/libmy.a
 
 # Répertoires
 BUILD_DIR = build
@@ -40,39 +28,39 @@ RESET = \033[0m
 RED = \033[0;31m
 
 # Règle par défaut
-all: $(LIBFT) $(NAME)
+all: $(LIBMY) $(NAME)
 
 # Compilation de l'exécutable
 $(NAME): $(OBJS)
 	@echo "$(YELLOW)🔨 Linking $(NAME)... 🚀$(RESET)"
-	$(CC) $(OBJS) $(LIBFT) $(LDFLAGS) -o $(NAME)
+	$(CC) $(OBJS) $(LIBMY) $(LDFLAGS) -o $(NAME)
 	@echo "$(GREEN)✅ Compilation successful!$(RESET)"
 
-# Compilation de la libft
-$(LIBFT):
-	@echo "$(YELLOW)🔨 Compiling libft... 🚀$(RESET)"
-	$(MAKE) -C $(LIBFT_DIR)
+# Compilation de la libmy
+$(LIBMY):
+	@echo "$(YELLOW)🔨 Compiling libmy... 🚀$(RESET)"
+	$(MAKE) -C $(LIBMY_DIR)
 
 # Règle pour les fichiers objets, en créant les dossiers nécessaires
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	@echo "$(YELLOW)📝 Compiling $<...$(RESET)"
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBMY_DIR) -c $< -o $@
 	@echo "$(GREEN)✅ Compilation of $< finished$(RESET)"
 
 # Nettoyage des fichiers objets
 clean:
 	@echo "$(RED)🧹 Cleaning object files...$(RESET)"
 	rm -rf $(BUILD_DIR)
-	@echo "$(RED)🧹 Cleaning libft objects...$(RESET)"
-	$(MAKE) clean -C $(LIBFT_DIR)
+	@echo "$(RED)🧹 Cleaning libmy objects...$(RESET)"
+	$(MAKE) clean -C $(LIBMY_DIR)
 
 # Nettoyage complet
 fclean: clean
 	@echo "$(RED)🧼 Removing executable...$(RESET)"
 	rm -f $(NAME)
-	@echo "$(RED)🧼 Cleaning libft archive...$(RESET)"
-	$(MAKE) fclean -C $(LIBFT_DIR)
+	@echo "$(RED)🧼 Cleaning libmy archive...$(RESET)"
+	$(MAKE) fclean -C $(LIBMY_DIR)
 
 # Recompilation complète
 re: fclean all
